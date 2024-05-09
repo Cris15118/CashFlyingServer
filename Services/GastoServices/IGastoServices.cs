@@ -9,7 +9,7 @@ namespace CashFlyingServer.Services.GastoServices
         Task<Gasto> VerGasto(int id);
 
         //POST
-        Task<List<Gasto>> AñadirGasto(Gasto nuevoGasto);
+        Task<List<Gasto>> AgregarGasto(Gasto nuevoGasto);
 
         //PUT
         Task<List<Gasto>> ActualizarGasto(int id, Gasto actualizarGasto);

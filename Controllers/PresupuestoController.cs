@@ -24,9 +24,9 @@ namespace CashFlyingServer.Controllers
             return Ok(await presupuestoService.ObtenerSaldo());
         }
         [HttpPost("AñadirPresupuesto")]
-        public async Task<ActionResult<List<Presupuesto>>> AñadirPresupuesto(Presupuesto nuevoPresupuesto)
+        public async Task<ActionResult<List<Presupuesto>>> AgregarPresupuesto(Presupuesto nuevoPresupuesto)
         {
-            return Ok(await presupuestoService.AñadirPresupuesto(nuevoPresupuesto));
+            return Ok(await presupuestoService.AgregarPresupuesto(nuevoPresupuesto));
         }
         [HttpDelete("ResetearSaldo")]
         public async Task<ActionResult<List<Presupuesto>>> ResetearSaldo(int id)

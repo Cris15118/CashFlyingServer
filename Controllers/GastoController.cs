@@ -29,9 +29,9 @@ namespace CashFlyingServer.Controllers
             return Ok(await gastoServices.VerGasto(id));
         }
         [HttpPost("AñadirGasto")]
-        public async Task<ActionResult<List<Gasto>>> AñadirGasto(Gasto nuevoGasto)
+        public async Task<ActionResult<List<Gasto>>> AgregarGasto(Gasto nuevoGasto)
         {
-            return Ok(await gastoServices.AñadirGasto(nuevoGasto));
+            return Ok(await gastoServices.AgregarGasto(nuevoGasto));
         }
         [HttpPut("ActualizarGasto/{id}")]
         public async Task<ActionResult<List<Gasto>>> ActualizarGasto(int id, Gasto actualizarGasto)
