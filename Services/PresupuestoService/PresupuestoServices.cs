@@ -25,12 +25,6 @@ namespace CashFlyingServer.Services.PresupuestoService
             var dbSaldo = await context.Presupuestos.ToListAsync();
             return dbSaldo;
         }
-        public async Task<List<Presupuesto>> ResetearSaldo(int id)
-        {
-            var dbPresupuesto = await context.Presupuestos.FindAsync(id);
-            context.Presupuestos.Remove(dbPresupuesto);
-            await context.SaveChangesAsync();
-            return await ObtenerSaldo();
-        }
+       
     }
 }

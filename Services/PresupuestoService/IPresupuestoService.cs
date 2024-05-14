@@ -9,10 +9,9 @@ namespace CashFlyingServer.Services.PresupuestoService
 
         // POST
 
-        Task<List<Presupuesto>> AgregarPresupuesto(Presupuesto nuevoPresupuesto);
+       Task<List<Presupuesto>> AgregarPresupuesto(Presupuesto nuevoPresupuesto);
 
 
-        //DELETE
-        Task<List<Presupuesto>> ResetearSaldo(int id);
+        
     }
 }

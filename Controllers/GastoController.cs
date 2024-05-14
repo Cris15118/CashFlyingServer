@@ -18,7 +18,7 @@ namespace CashFlyingServer.Controllers
             this.gastoServices = gastoServices;
         }
 
-        [HttpGet("ListadoGastos")]
+        [HttpGet("listado-gastos")]
         public async Task<ActionResult<List<Gasto>>> ListadoGastos()
         {
             return Ok(await gastoServices.ListadoGastos());

@@ -14,11 +14,8 @@ namespace CashFlyingServer.Services.GastoServices
             this.context = context;
         }
 
-<<<<<<< HEAD
+
         public async Task<List<Gasto>> AgregarGasto(Gasto nuevoGasto)
-=======
-        public async Task<List<Gasto>> AñadirGasto(Gasto nuevoGasto)
->>>>>>> 1f578c02a6a71625a97c506874dc5773847de47e
         {
             context.Gastos.Add(nuevoGasto);
             await context.SaveChangesAsync();
@@ -34,11 +31,8 @@ namespace CashFlyingServer.Services.GastoServices
             var dbGastos = await context.Gastos.FindAsync(id);
             if (dbGastos == null)
             {
-<<<<<<< HEAD
                 throw new Exception("El gasto seleccionado no existe");
-=======
-                throw new Exception("El gasto que quieres actualizar no existe");
->>>>>>> 1f578c02a6a71625a97c506874dc5773847de47e
+         
             }
             return dbGastos;
         }
@@ -59,11 +53,7 @@ namespace CashFlyingServer.Services.GastoServices
             var dbGastos = await context.Gastos.FindAsync(id);
             if (dbGastos == null)
             {
-<<<<<<< HEAD
                 throw new Exception("El gasto no existe");
-=======
-                throw new Exception("El gasto que quieres actualizar no existe");
->>>>>>> 1f578c02a6a71625a97c506874dc5773847de47e
             }
             context.Gastos.Remove(dbGastos);
             await context.SaveChangesAsync();

@@ -61,32 +61,28 @@ namespace CashFlyingServer.Controllers
             {
                 //Verificar las credenciasles del usuario
                 var userExist = await usuarioServices.CheckUserAndPass(request.Email, request.Password);
-                if (!userExist)
+                if (userExist)
                 {
-                    return Unauthorized("El Usuario no Existe");
+                    SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
+                    SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+                    var SecretToken = new JwtSecurityToken(
+                      Issuer,
+                      Audience,
+                      null,
+                      expires: DateTime.Now.Add(TokenLifetime),
+                      signingCredentials: credentials);
+
+                    var token = new JwtSecurityTokenHandler().WriteToken(SecretToken);                    
+                    return Ok(token);
                 }
                 else
                 {
-                     bool CheckUserAndPass()
-                    {
-                        return true;
-                    }
                     
+                     return Unauthorized("El Usuario no Existe");
                 }              
 
-                SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
-                SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-                var SecretToken = new JwtSecurityToken(
-                  Issuer,
-                  Audience,
-                  null,
-                  expires: DateTime.Now.Add(TokenLifetime),
-                  signingCredentials: credentials);
-
-                var token = new JwtSecurityTokenHandler().WriteToken(SecretToken);
-
-                return Ok(token);
+              
             }
             catch (Exception ex)
             {
