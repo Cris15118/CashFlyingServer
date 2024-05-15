@@ -1,5 +1,4 @@
-﻿using BCrypt.Net;
-using CashFlyingServer.Data;
+﻿using CashFlyingServer.Data;
 using CashFlyingServer.Models;
 using Microsoft.EntityFrameworkCore;
 
